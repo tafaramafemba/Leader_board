@@ -1,7 +1,7 @@
 import './style.css';
 
 const taskObject = [
-   {
+  {
     chore: 'wash the dishes',
     completed: true,
     index: 1,
@@ -12,7 +12,7 @@ const taskObject = [
     completed: false,
     index: 2,
   },
-  ];
+];
 
 const tasks = document.querySelector('.tasks');
 const ul = document.createElement('ul');
