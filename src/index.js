@@ -1,12 +1,37 @@
 import _ from 'lodash';
+import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+const taskObject = [
+{
+  chore: 'wash the dishes',
+  completed: true,
+  index: 1,
+},
 
-// Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+{
+  chore: 'complete To Do list project',
+  completed: false,
+  index: 2,
+},
+];
 
-  return element;
-}
 
-document.body.appendChild(component());
+const tasks = document.querySelector('.tasks');
+const ul =document.createElement('ul');
+ul.classList.add('tasks-list');
+tasks.appendChild(ul);
+
+function displayTasks (theObject) {
+  for(let i=0; i<=theObject.length; i+=1){
+  const li = document.createElement('li');
+  li.classList.add('tasks-li');
+    li.innerHTML = `
+    <button class = "check-btn"></button>
+    <div class = "label-div"><label>${theObject[i].chore}</label></div>
+    <button class = "li-btn"></button>
+    `;
+    ul.appendChild(li);
+  }
+  }
+
+  displayTasks(taskObject);
