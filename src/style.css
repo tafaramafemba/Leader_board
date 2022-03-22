@@ -1,6 +1,7 @@
 body {
   background-color: #efefef;
 }
+
 .list {
   box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 10%);
   background-color: #fff;
@@ -79,9 +80,9 @@ hr {
 
 .tasks-list {
   text-decoration: none;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-left: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
 }
 
 .tasks-list li {
@@ -124,16 +125,3 @@ hr {
   padding: 0 1rem;
   height: 50px;
 }
-
-/* input[type="checkbox"] {
-  appearance: none;
-  background-color: #fff;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid currentColor;
-  border-radius: 0.15em;
-  transform: translateY(-0.075em);
-} */
