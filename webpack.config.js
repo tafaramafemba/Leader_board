@@ -9,6 +9,9 @@ module.exports = {
     clean: true,
   },
   mode: 'development',
+  devServer: {
+    static: './dist',
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
