@@ -11,13 +11,14 @@ This is a to do list that allows the user to manage their daily tasks. Features 
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple example steps: 
+
+1. Click on the repository's link (https://github.com/tafaramafemba/To-do-list)
+2. Clone this repository into your personal Github account. Once this is complete, you will have access to the file locally.
 
 ### Prerequisites
 A Github account to clone the repository.
-### Setup
-1. The user can get access to this repo by clicking on the repository's link (https://github.com/tafaramafemba/To-do-list). 
-2. Next, the user will need to clone this repository into their personal Github account. Once this is complete, they will have the file.
+
 ### Deployment
 To deploy the site, the user will need to use Github Pages for this. The main branch can be used for this.
 
