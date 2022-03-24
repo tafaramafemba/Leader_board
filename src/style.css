@@ -85,7 +85,7 @@ hr {
   padding-left: 0;
 }
 
-.organize {
+#organize {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -95,7 +95,7 @@ hr {
   padding-right: 10px;
 }
 
-.tasks {
+#tasks {
   justify-content: space-between;
   color: #000;
   list-style: none;
@@ -115,12 +115,8 @@ hr {
   height: 20px;
 }
 
-.check-btn {
-  background: none;
-  border: 1px solid #000;
-  height: 20px;
-  align-content: center;
-  padding-left: 10px;
+.btn-label {
+  visibility: none;
 }
 
 .label-input {
