@@ -1,5 +1,7 @@
 import './style.css';
+
 import Awesome from './modules/classAwesome.js';
+
 const enter = document.querySelector('.enter');
 const tasks = document.querySelector('#tasks');
 const awesome = new Awesome();
