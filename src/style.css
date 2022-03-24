@@ -6,7 +6,7 @@ body {
   box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 10%);
   background-color: #fff;
   margin: auto;
-  margin-top: 300px;
+  margin-top: 100px;
   width: 60%;
 }
 
@@ -85,8 +85,18 @@ hr {
   padding-left: 0;
 }
 
-.tasks-list li {
-  padding: 10px;
+.organize {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #808080;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.tasks {
+  justify-content: space-between;
   color: #000;
   list-style: none;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -96,7 +106,8 @@ hr {
 
 .li-btn {
   background: none;
-  background-image: url(./dots.png);
+  padding-right: 10px;
+  background-image: url(./delete.png);
   border: none;
   background-size: cover;
   background-repeat: no-repeat;
@@ -109,19 +120,12 @@ hr {
   border: 1px solid #000;
   height: 20px;
   align-content: center;
+  padding-left: 10px;
 }
 
-.tasks-li {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #808080;
-}
-
-.label-div {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  word-wrap: break-word;
-  padding: 0 1rem;
+.label-input {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: none;
+  font-size: 20px;
   height: 50px;
 }
