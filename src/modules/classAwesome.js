@@ -10,9 +10,9 @@ export default class Awesome {
     return this.data;
   }
 
-  removeRecord(rec) {
-    let result = this.record.filter(el => el === rec);
-  }
+  // removeRecord(rec) {
+  //   const result = this.record.filter(el => el === rec);
+  // }
 
   local() {
     localStorage.setItem('tasks', JSON.stringify(this.record));
@@ -25,11 +25,12 @@ export default class Awesome {
       if (elementForChore.chore === element) {
         elementForChore.chore = value;
       }
-    localStorage.setItem('tasks', JSON.stringify(this.record));
+      localStorage.setItem('tasks', JSON.stringify(this.record));
     });
   }
 
   returnInfo() {
+    const tasks = document.querySelector('#tasks');
     tasks.innerHTML = '';
     this.record = JSON.parse(localStorage.getItem('tasks'));
     if (this.record === null) {
@@ -60,7 +61,3 @@ export default class Awesome {
     this.local();
   }
 }
-
-
-
-// https://github.com/hsztan/minimalist-todo-list/tree/tasks-status
