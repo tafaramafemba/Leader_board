@@ -5,6 +5,8 @@ const tasks = document.querySelector('#tasks');
 const liButton = document.querySelector('.li-btn');
 const input = document.querySelector('.myInput');
 const awesome = new Awesome();
+document.addEventListener('DOMContentLoaded', awesome.returnInfo());
+
 
 enter.addEventListener('click', (e) => {
   e.preventDefault();
@@ -18,12 +20,17 @@ enter.addEventListener('click', (e) => {
   }
 });
 
+tasks.addEventListener('focusout', (e) => {
+    // console.log("hey");
+    const item = e.target.value;
+    console.log(item);
+    awesome.updateInput(item, e.path[0].defaultValue);
+    awesome.local();
+});
+
 tasks.addEventListener('click', (e) => {
   e.preventDefault();
   if (e.target.innerHTML === '  ') {
     awesome.eliminate(e.path[0].defaultValue);
   }
-
 });
-
-document.addEventListener('DOMContentLoaded', awesome.returnInfo());

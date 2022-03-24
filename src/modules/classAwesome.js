@@ -19,6 +19,16 @@ export default class Awesome {
     this.returnInfo();
   }
 
+  updateInput(value, element) {
+    this.record = JSON.parse(localStorage.getItem('tasks'));
+    this.record.forEach((elementForChore) => {
+      if (elementForChore.chore === element) {
+        elementForChore.chore = value;
+      }
+    localStorage.setItem('tasks', JSON.stringify(this.record));
+    });
+  }
+
   returnInfo() {
     tasks.innerHTML = '';
     this.record = JSON.parse(localStorage.getItem('tasks'));
@@ -30,7 +40,7 @@ export default class Awesome {
         index += 1;
         tasks.innerHTML += `
         <div id = "organize"${index}>
-        <input type="checkbox" id="vehicle1" name="vehicle1">
+        <input type="checkbox">
         <input type = "text" class = "label-input" value = "${element.chore}">
         <button class = "li-btn">  </button>
         </div>
@@ -50,3 +60,7 @@ export default class Awesome {
     this.local();
   }
 }
+
+
+
+// https://github.com/hsztan/minimalist-todo-list/tree/tasks-status
