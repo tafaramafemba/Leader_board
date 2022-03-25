@@ -1,35 +1,34 @@
 import './style.css';
 
-const taskObject = [
-  {
-    chore: 'wash the dishes',
-    completed: true,
-    index: 1,
-  },
+import Awesome from './modules/classAwesome.js';
 
-  {
-    chore: 'complete To Do list project',
-    completed: false,
-    index: 2,
-  },
-];
+const enter = document.querySelector('.enter');
 
-const tasks = document.querySelector('.tasks');
-const ul = document.createElement('ul');
-ul.classList.add('tasks-list');
-tasks.appendChild(ul);
+const awesome = new Awesome();
 
-function displayTasks(theObject) {
-  for (let i = 0; i <= theObject.length; i += 1) {
-    const li = document.createElement('li');
-    li.classList.add('tasks-li');
-    li.innerHTML = `
-    <button class = "check-btn"></button>
-    <div class = "label-div"><label>${theObject[i].chore}</label></div>
-    <button class = "li-btn"></button>
-    `;
-    ul.appendChild(li);
+const addListenerOnFocus = (chores) => {
+  chores.addEventListener('focusout', (e) => {
+    const item = e.target.value;
+    awesome.updateInput(item, e.path[0].defaultValue);
+    awesome.local();
+  });
+};
+
+// Main load
+document.addEventListener('DOMContentLoaded', () => {
+  awesome.returnInfo();
+  const chores = document.querySelectorAll('.label-input');
+  chores.forEach((chore) => addListenerOnFocus(chore));
+});
+
+enter.addEventListener('click', (e) => {
+  e.preventDefault();
+  const chore = document.getElementById('myInput').value;
+  if (!chore) {
+    alert('missing information');
+  } else {
+    awesome.addRecord(chore);
+    awesome.local();
+    document.getElementById('myInput').value = '';
   }
-}
-
-displayTasks(taskObject);
+});
