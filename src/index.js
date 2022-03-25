@@ -4,8 +4,23 @@ import Awesome from './modules/classAwesome.js';
 
 const enter = document.querySelector('.enter');
 const tasks = document.querySelector('#tasks');
+
 const awesome = new Awesome();
-document.addEventListener('DOMContentLoaded', () => awesome.returnInfo());
+
+const addListenerOnFocus = (chores) => {
+  chores.addEventListener('focusout', (e) => {
+    const item = e.target.value;
+    awesome.updateInput(item, e.path[0].defaultValue);
+    awesome.local();
+  });
+};
+
+// Main load
+document.addEventListener('DOMContentLoaded', () => {
+  awesome.returnInfo();
+  const chores = document.querySelectorAll('.label-input');
+  chores.forEach((chore) => addListenerOnFocus(chore));
+});
 
 enter.addEventListener('click', (e) => {
   e.preventDefault();
@@ -16,18 +31,5 @@ enter.addEventListener('click', (e) => {
     awesome.addRecord(chore);
     awesome.local();
     document.getElementById('myInput').value = '';
-  }
-});
-
-tasks.addEventListener('focusout', (e) => {
-  const item = e.target.value;
-  awesome.updateInput(item, e.path[0].defaultValue);
-  awesome.local();
-});
-
-tasks.addEventListener('click', (e) => {
-  e.preventDefault();
-  if (e.target.innerHTML === '  ') {
-    awesome.eliminate(e.path[0].defaultValue);
   }
 });

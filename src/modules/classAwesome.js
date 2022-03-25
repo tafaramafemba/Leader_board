@@ -5,9 +5,17 @@ export default class Awesome {
     this.completed = false;
     this.count = 0;
   }
-  
+
+  addListenerToDelete(choreEle) {
+    const binEle = choreEle.querySelector('.li-btn');
+    binEle.addEventListener('click', (e) => {
+      console.log(choreEle);
+      this.eliminate(choreEle);
+    });
+  }
+
   addRecord(chore) {
-    this.count +=1;
+    this.count += 1;
     this.data = { chore, completed: false, index: this.count };
     this.record.push(this.data);
     return this.data;
@@ -15,12 +23,14 @@ export default class Awesome {
 
   updateIndex() {
     this.record = JSON.parse(localStorage.getItem('tasks'));
-    let i = -1;
-    for (let j = 0; j < this.record.length; j += 1) {
-      i +=1;
-      this.count = i;
-      this.record[j].index = this.count;
+    if (!this.record?.length) {
+      this.count = 0;
+      return;
     }
+    this.record.forEach((chore, i) => {
+      this.count = i + 1;
+      chore.index = this.count;
+    });
     localStorage.setItem('tasks', JSON.stringify(this.record));
   }
 
@@ -45,22 +55,37 @@ export default class Awesome {
     this.record = JSON.parse(localStorage.getItem('tasks'));
     if (this.record === null) {
       this.record = [];
+      this.count = 0;
     } else {
+      // get new count
+      this.count = 0;
       this.record.forEach((element) => {
-        tasks.innerHTML += `
-        <div id = "organize">
+        this.count += 1;
+        const newChoreEle = document.createElement('div');
+        newChoreEle.classList.add('organize');
+        newChoreEle.id = `chore-${this.count}`;
+        newChoreEle.innerHTML = `
         <input type="checkbox">
-        <input type = "text" class = "label-input" value = "${element.chore}">
-        <button class = "li-btn">  </button>
-        </div>
+        <input type="text" class="label-input" data-id="${this.count}" value="${element.chore}">
+        <button id="btn-${this.count}" class="li-btn">  </button>
         `;
+        console.log('item created');
+        //add event listers to each chore
+        this.addListenerToDelete(newChoreEle);
+
+        document.querySelector('#tasks').appendChild(newChoreEle);
       });
     }
   }
 
-  eliminate(chore) {
+  eliminate(choreElem) {
+    // get the index on the record array of the chore
+    const indexOfChore = choreElem.querySelector('.label-input').dataset.id;
+    // 1. removing the object from the array
+    console.log('index of chore', indexOfChore);
+    this.record.splice(indexOfChore - 1, 1);
+    localStorage.setItem('tasks', JSON.stringify(this.record));
     this.updateIndex();
-    this.record.splice(chore, 1);
-    this.local();
+    this.returnInfo();
   }
 }
