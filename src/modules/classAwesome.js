@@ -2,17 +2,27 @@ export default class Awesome {
   constructor() {
     this.data = {};
     this.record = [];
+    this.completed = false;
+    this.count = 0;
   }
-
+  
   addRecord(chore) {
-    this.data = { chore };
+    this.count +=1;
+    this.data = { chore, completed: false, index: this.count };
     this.record.push(this.data);
     return this.data;
   }
 
-  // removeRecord(rec) {
-  //   const result = this.record.filter(el => el === rec);
-  // }
+  updateIndex() {
+    this.record = JSON.parse(localStorage.getItem('tasks'));
+    let i = -1;
+    for (let j = 0; j < this.record.length; j += 1) {
+      i +=1;
+      this.count = i;
+      this.record[j].index = this.count;
+    }
+    localStorage.setItem('tasks', JSON.stringify(this.record));
+  }
 
   local() {
     localStorage.setItem('tasks', JSON.stringify(this.record));
@@ -36,11 +46,9 @@ export default class Awesome {
     if (this.record === null) {
       this.record = [];
     } else {
-      let index = 0;
       this.record.forEach((element) => {
-        index += 1;
         tasks.innerHTML += `
-        <div id = "organize"${index}>
+        <div id = "organize">
         <input type="checkbox">
         <input type = "text" class = "label-input" value = "${element.chore}">
         <button class = "li-btn">  </button>
@@ -51,13 +59,8 @@ export default class Awesome {
   }
 
   eliminate(chore) {
-    let indexArray;
-    this.record.forEach((element, index) => {
-      if (element.chore === chore) {
-        indexArray = index;
-      }
-    });
-    this.record.splice(indexArray, 1);
+    this.updateIndex();
+    this.record.splice(chore, 1);
     this.local();
   }
 }
