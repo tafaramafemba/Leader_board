@@ -9,6 +9,7 @@ export default class Awesome {
   addListenerToDelete(choreEle) {
     const binEle = choreEle.querySelector('.li-btn');
     binEle.addEventListener('click', (e) => {
+      e.preventDefault();
       console.log(choreEle);
       this.eliminate(choreEle);
     });
@@ -70,7 +71,6 @@ export default class Awesome {
         <button id="btn-${this.count}" class="li-btn">  </button>
         `;
         console.log('item created');
-        //add event listers to each chore
         this.addListenerToDelete(newChoreEle);
 
         document.querySelector('#tasks').appendChild(newChoreEle);
