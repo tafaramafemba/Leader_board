@@ -38,4 +38,4 @@ enter.addEventListener('click', (e) => {
 clear.addEventListener('click', (e) => {
   e.preventDefault();
   awesome.clearCompleted();
-})
+});

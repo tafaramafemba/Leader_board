@@ -88,7 +88,7 @@ export default class Awesome {
         localStorage.setItem('tasks', JSON.stringify(this.record));
       });
     }
-  };
+  }
 
   eliminate(choreElem) {
     // 1. removing the object from the array
@@ -98,7 +98,6 @@ export default class Awesome {
     this.returnInfo();
   }
 
-
   changeCheck(newchoreEle) {
     this.record = JSON.parse(localStorage.getItem('tasks'));
     const checkBtn = newchoreEle.querySelector('.check-btn');
@@ -106,27 +105,22 @@ export default class Awesome {
 
     checkBtn.addEventListener('change', (e) => {
       e.preventDefault();
-      //checks to see if item clicked was completed or not and sets it to the opposite
       if (this.record[indexOfChore].completed === false) {
         this.completed = true;
         this.record[indexOfChore].completed = true;
         localStorage.setItem('tasks', JSON.stringify(this.record));
-      }
-      else {
+      } else {
         this.completed = false;
         this.record[indexOfChore].completed = false;
         localStorage.setItem('tasks', JSON.stringify(this.record));
         this.returnInfo();
       }
     });
-
-
   }
 
   clearCompleted() {
     this.record = JSON.parse(localStorage.getItem('tasks'));
-    this.record = this.record.filter(element => element.completed === false);
-    const clearItems = this.record.filter(element => !element.completed);
+    this.record = this.record.filter((element) => element.completed === false);
     localStorage.setItem('tasks', JSON.stringify(this.record));
     this.returnInfo();
   }
