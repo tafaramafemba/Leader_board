@@ -127,6 +127,15 @@ hr {
   text-decoration: line-through;
 }
 
+.checked-check-btn {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border: none;
+  font-size: 20px;
+  height: 50px;
+  width: 80%;
+  text-decoration: line-through;
+}
+
 .check-btn {
   appearance: none;
   background-color: #fff;

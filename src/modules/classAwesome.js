@@ -1,3 +1,5 @@
+import { forEach } from "lodash";
+
 export default class Awesome {
   constructor() {
     this.data = {};
@@ -8,10 +10,10 @@ export default class Awesome {
 
   addListenerToDelete(choreEle) {
     const binEle = choreEle.querySelector('.li-btn');
+
     binEle.addEventListener('click', (e) => {
       e.preventDefault();
-      console.log(choreEle);
-      this.eliminate(choreEle);
+      this.eliminate(choreEle.id - 1);
     });
   }
 
@@ -64,12 +66,22 @@ export default class Awesome {
         this.count += 1;
         const newChoreEle = document.createElement('div');
         newChoreEle.classList.add('organize');
-        newChoreEle.id = `chore-${this.count}`;
-        newChoreEle.innerHTML = `
-        <input type="checkbox" class="check-btn">
+        newChoreEle.id = `${this.count}`;
+
+        if (element.completed === true) {
+          newChoreEle.innerHTML = `
+        <input type="checkbox" id="${this.count}" class="check-btn">
+        <input type="text" class="checked-check-btn" data-id="${this.count}" value="${element.chore}">
+        <button id="btn-${this.count}" class="li-btn">  </button>
+        `;
+        } else {
+          newChoreEle.innerHTML = `
+        <input type="checkbox" id="${this.count}" class="check-btn">
         <input type="text" class="label-input" data-id="${this.count}" value="${element.chore}">
         <button id="btn-${this.count}" class="li-btn">  </button>
         `;
+        }
+
         document.querySelector('#tasks').appendChild(newChoreEle);
         this.addListenerToDelete(newChoreEle);
         this.changeCheck(newChoreEle, element);
@@ -79,40 +91,43 @@ export default class Awesome {
   };
 
   eliminate(choreElem) {
-    // get the index on the record array of the chore
-    const indexOfChore = choreElem.querySelector('.label-input').dataset.id;
     // 1. removing the object from the array
-    console.log('index of chore', indexOfChore);
-    this.record.splice(indexOfChore - 1, 1);
+    this.record.splice(choreElem, 1);
     localStorage.setItem('tasks', JSON.stringify(this.record));
     this.updateIndex();
     this.returnInfo();
   }
 
-  // filterRecords() {
-  //   if(this.completed: false) {
-
-  //   };
-  // }
-
 
   changeCheck(newchoreEle) {
     this.record = JSON.parse(localStorage.getItem('tasks'));
     const checkBtn = newchoreEle.querySelector('.check-btn');
+    const indexOfChore = newchoreEle.id - 1;
+
     checkBtn.addEventListener('change', (e) => {
       e.preventDefault();
-      if (e.target.checked) {
-            this.completed = true;
-            console.log(this.completed);
-            localStorage.setItem('tasks', JSON.stringify(this.record));
-          }
-          else {
-            this.completed = false;
-            console.log(this.completed);
-            localStorage.setItem('tasks', JSON.stringify(this.record));
-          }     
+      //checks to see if item clicked was completed or not and sets it to the opposite
+      if (this.record[indexOfChore].completed === false) {
+        this.completed = true;
+        this.record[indexOfChore].completed = true;
+        localStorage.setItem('tasks', JSON.stringify(this.record));
+      }
+      else {
+        this.completed = false;
+        this.record[indexOfChore].completed = false;
+        localStorage.setItem('tasks', JSON.stringify(this.record));
+        this.returnInfo();
+      }
     });
-    
 
+
+  }
+
+  clearCompleted() {
+    this.record = JSON.parse(localStorage.getItem('tasks'));
+    this.record = this.record.filter(element => element.completed === false);
+    const clearItems = this.record.filter(element => !element.completed);
+    localStorage.setItem('tasks', JSON.stringify(this.record));
+    this.returnInfo();
   }
 }
