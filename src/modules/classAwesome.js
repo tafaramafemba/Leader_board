@@ -1,5 +1,3 @@
-import { forEach } from "lodash";
-
 export default class Awesome {
   constructor() {
     this.data = {};
