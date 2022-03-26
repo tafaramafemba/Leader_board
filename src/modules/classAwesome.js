@@ -66,17 +66,17 @@ export default class Awesome {
         newChoreEle.classList.add('organize');
         newChoreEle.id = `chore-${this.count}`;
         newChoreEle.innerHTML = `
-        <input type="checkbox">
+        <input type="checkbox" class="check-btn">
         <input type="text" class="label-input" data-id="${this.count}" value="${element.chore}">
         <button id="btn-${this.count}" class="li-btn">  </button>
         `;
-        console.log('item created');
-        this.addListenerToDelete(newChoreEle);
-
         document.querySelector('#tasks').appendChild(newChoreEle);
+        this.addListenerToDelete(newChoreEle);
+        this.changeCheck(newChoreEle, element);
+        localStorage.setItem('tasks', JSON.stringify(this.record));
       });
     }
-  }
+  };
 
   eliminate(choreElem) {
     // get the index on the record array of the chore
@@ -87,5 +87,32 @@ export default class Awesome {
     localStorage.setItem('tasks', JSON.stringify(this.record));
     this.updateIndex();
     this.returnInfo();
+  }
+
+  // filterRecords() {
+  //   if(this.completed: false) {
+
+  //   };
+  // }
+
+
+  changeCheck(newchoreEle) {
+    this.record = JSON.parse(localStorage.getItem('tasks'));
+    const checkBtn = newchoreEle.querySelector('.check-btn');
+    checkBtn.addEventListener('change', (e) => {
+      e.preventDefault();
+      if (e.target.checked) {
+            this.completed = true;
+            console.log(this.completed);
+            localStorage.setItem('tasks', JSON.stringify(this.record));
+          }
+          else {
+            this.completed = false;
+            console.log(this.completed);
+            localStorage.setItem('tasks', JSON.stringify(this.record));
+          }     
+    });
+    
+
   }
 }
