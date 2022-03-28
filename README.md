@@ -47,4 +47,8 @@ Give a ⭐️ if you like this project!
 - Inspiration
 - etc
 
+## Environments
+The website is live on Github Pages
+https://tafaramafemba.github.io/To-do-list/
+
  
