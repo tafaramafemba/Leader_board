@@ -6,6 +6,8 @@ const enter = document.querySelector('.enter');
 
 const awesome = new Awesome();
 
+const clear = document.querySelector('.clear-btn');
+
 const addListenerOnFocus = (chores) => {
   chores.addEventListener('focusout', (e) => {
     const item = e.target.value;
@@ -31,4 +33,9 @@ enter.addEventListener('click', (e) => {
     awesome.local();
     document.getElementById('myInput').value = '';
   }
+});
+
+clear.addEventListener('click', (e) => {
+  e.preventDefault();
+  awesome.clearCompleted();
 });
