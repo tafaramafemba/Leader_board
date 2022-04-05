@@ -1,4 +1,5 @@
 {
+  "start": "webpack --config webpack.config.js --watch",
   "name": "webpack-boilerplate",
   "version": "1.0.0",
   "description": "",
