@@ -1,11 +1,11 @@
 {
-  "start": "webpack --config webpack.config.js --watch",
   "name": "webpack-boilerplate",
   "version": "1.0.0",
   "description": "",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config webpack.config.js --watch",
     "watch": "webpack --watch",
     "build": "webpack"
   },

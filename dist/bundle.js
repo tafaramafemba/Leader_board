@@ -116,7 +116,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\r\nconst scoreboard = document.querySelector('.scoreboard');\r\n\r\nconst data = [\r\n  {\r\n    name: ['Tafara', 'Tom', 'Brady'],\r\n    score: [100, 200, 400],\r\n  },\r\n];\r\n\r\nfor (let i = 0; i < 3; i += 1) {\r\n  scoreboard.innerHTML = `\r\n\r\n<div class = \"board\">\r\n<p class = \"d-name\">${data[0].name[0]}</p>\r\n<p class = \"d-name\">${data[0].score[0]}</p>\r\n\r\n</div>\r\n`;\r\n}\n\n//# sourceURL=webpack://webpack-boilerplate/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\r\n\r\nconst scoreboard = document.querySelector('.scoreboard');\r\n\r\nconst data = [\r\n  {\r\n    name: ['Tafara', 'Tom', 'Brady'],\r\n    score: [100, 200, 400],\r\n  },\r\n];\r\n\r\nfor (let i = 0; i < 3; i += 1) {\r\n  scoreboard.innerHTML = `\r\n\r\n<div class = \"board\">\r\n<p class = \"d-name\">${data[0].name[0]}</p>\r\n<p class = \"d-name\">${data[0].score[0]}</p>\r\n\r\n</div>\r\n`;\r\n}\n\n//# sourceURL=webpack://webpack-boilerplate/./src/index.js?");
 
 /***/ })
 
