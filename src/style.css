@@ -1,0 +1,44 @@
+* {
+  font-family: "Comic Neue", cursive;
+  font-weight: 700;
+}
+
+.recent {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.refresh {
+  width: 100px;
+  height: 25px;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.score-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#form {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.board {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid;
+  padding-left: 10px;
+  gap: 5px;
+}
+
+.d-name {
+  font-size: 10px;
+  font-weight: bold;
+}
