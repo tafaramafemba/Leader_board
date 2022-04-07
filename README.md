@@ -1,26 +1,38 @@
-# To-do-list
+# Leaderboard
 
-This is a to do list that allows the user to manage their daily tasks. Features included are setting, removing, checking and clearing tasks.
+> A leaderboard project made with webpack that fetches data from an API.
+
 
 ## Built With
 
 - HTML
 - CSS
 - Javascript
+- Git
 - Webpack
+
+## Live Demo (if available)
+
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps: 
-
-1. Click on the repository's link (https://github.com/tafaramafemba/To-do-list)
-2. Clone this repository into your personal Github account. Once this is complete, you will have access to the file locally.
+To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
-A Github account to clone the repository.
 
-### Deployment
-To deploy the site, the user will need to use Github Pages for this. The main branch can be used for this.
+Have latest LTS version of Node installed in your environment.
+
+### Setup
+
+Clone this repo into your local computer.
+
+### Install
+
+In your local root folder type 'npm install'
+
+### Usage
+
+Run npm start to start server in your browser.
 
 ## Authors
 
@@ -46,9 +58,5 @@ Give a ⭐️ if you like this project!
 - Hat tip to anyone whose code was used
 - Inspiration
 - etc
-
-## Environments
-The website is live on Github Pages
-https://tafaramafemba.github.io/To-do-list/
 
  
