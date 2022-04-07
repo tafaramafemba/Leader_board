@@ -40,6 +40,5 @@ userDataSubmit.addEventListener('submit', async (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  // createGame(`Game created at: ${new Date()}`);
   loadScores();
 });
