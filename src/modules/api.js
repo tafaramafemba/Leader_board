@@ -1,17 +1,19 @@
 const apiBaseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
 const gameId = 'oqFojossPKuv8cC62qK4';
 
-const createGame = async (name) => {
+const createGame = async (data) => {
   const response = await fetch(apiBaseUrl, {
     method: 'POST',
+    body: JSON.stringify({
+      name: data.name,
+    }),
     headers: {
-      'Content-type': 'application/json; charset=UTF-8',
+      'Content-type': 'application/json',
     },
-    body: JSON.stringify(`{name: ${name}}`),
   });
-
-  const res = await response.json();
-  return res;
+  console.log('post the score');
+  console.log(response.json());
+  return response.json();
 };
 
 const createUserData = async (data) => {
@@ -31,6 +33,7 @@ const getUsersData = async () => {
   const response = await fetch(`${apiBaseUrl}${gameId}/scores/`);
 
   const usersData = await response.json();
+  console.log(usersData);
   return usersData;
 };
 
