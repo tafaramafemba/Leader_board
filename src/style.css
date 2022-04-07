@@ -16,7 +16,7 @@
 }
 
 .refresh:hover {
-  background-color: #000;
+  background-color: #ff5f1f;
   color: #fff;
   cursor: pointer;
 }
@@ -25,11 +25,16 @@
   display: flex;
   flex-direction: row;
   gap: 50px;
+  border-bottom: 2px solid #ff5f1f;
 }
 
 .score-form {
   display: flex;
   flex-direction: column;
+  border: 2px solid #006994;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-bottom: 15px;
 }
 
 #form {
@@ -55,7 +60,19 @@
 }
 
 #add:hover {
-  background-color: #000;
+  background-color: #009900;
   color: #fff;
   cursor: pointer;
+}
+
+h1 {
+  border-bottom: 2px solid #ff5f1f;
+}
+
+.scores {
+  border: 2px solid #009900;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
 }
