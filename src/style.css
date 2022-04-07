@@ -12,6 +12,13 @@
 .refresh {
   width: 100px;
   height: 25px;
+  background-color: #fff;
+}
+
+.refresh:hover {
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
 }
 
 .list {
@@ -41,4 +48,14 @@
 .d-name {
   font-size: 10px;
   font-weight: bold;
+}
+
+#add {
+  background-color: #fff;
+}
+
+#add:hover {
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
 }
