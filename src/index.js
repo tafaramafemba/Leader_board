@@ -1,21 +1,45 @@
 import './style.css';
+import { createGame, getUsersData, createUserData } from './modules/api.js'
 
-const scoreboard = document.querySelector('.scoreboard');
+const refreshButton = document.querySelector('.refresh');
 
-const data = [
-  {
-    name: ['Tafara', 'Tom', 'Brady'],
-    score: [100, 200, 400],
-  },
-];
+const loadScores = async () => {
+  const scoresDisplay = document.getElementsByClassName('scoreboard');
 
-for (let i = 0; i < 3; i += 1) {
-  scoreboard.innerHTML = `
+  while (scoresDisplay.firstChild) {
+    scoresDisplay.removeChild(scoresDisplay.firstChild);
+  }
 
-<div class = "board">
-<p class = "d-name">${data[0].name[0]}</p>
-<p class = "d-name">${data[0].score[0]}</p>
+  const usersData = await getUsersData();
 
-</div>
-`;
-}
+  usersData.result.forEach((entry) => scoresDisplay.insertAdjacentHTML('beforeend', `
+    <div>${entry.user}: ${entry.score}</div>  
+  `));
+};
+
+refreshButton.addEventListener('click', loadScores);
+
+const userDataSubmit = document.querySelector('#add');
+
+userDataSubmit.addEventListener('click', async () => {
+  let userName = document.getElementById('new-name').value;
+  let userScore = document.getElementById('new-score').value;
+
+  if (userName !== '' && userScore !== '') {
+    const data = {
+      user: userName,
+      score: userScore,
+    };
+
+    await createUserData(data);
+
+    userName = '';
+    userScore = '';
+  }
+  loadScores();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  createGame(`Game created at: ${new Date()}`);
+  loadScores();
+});
