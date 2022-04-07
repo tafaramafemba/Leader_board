@@ -11,8 +11,6 @@ const createGame = async (data) => {
       'Content-type': 'application/json',
     },
   });
-  console.log('post the score');
-  console.log(response.json());
   return response.json();
 };
 
@@ -33,7 +31,6 @@ const getUsersData = async () => {
   const response = await fetch(`${apiBaseUrl}${gameId}/scores/`);
 
   const usersData = await response.json();
-  console.log(usersData);
   return usersData;
 };
 

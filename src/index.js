@@ -1,5 +1,5 @@
 import './style.css';
-import { getUsersData, createUserData } from './modules/api.js'
+import { getUsersData, createUserData } from './modules/api.js';
 
 const refreshButton = document.querySelector('.refresh');
 
@@ -23,15 +23,14 @@ const userDataSubmit = document.querySelector('#form');
 
 userDataSubmit.addEventListener('submit', async (e) => {
   e.preventDefault();
-  let userName = document.getElementById('new-name');
-  let userScore = document.getElementById('new-score');
+  const userName = document.getElementById('new-name');
+  const userScore = document.getElementById('new-score');
 
   if (userName.value !== '' && userScore.value !== '') {
     const data = {
       user: userName.value,
       score: userScore.value,
     };
-    console.log(data);
 
     await createUserData(data);
 
