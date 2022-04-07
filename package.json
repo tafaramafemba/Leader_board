@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --config webpack.config.js --watch",
+    "start": "webpack-dev-server --mode development --open",
     "watch": "webpack --watch",
     "build": "webpack"
   },
@@ -32,6 +32,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "lodash": "^4.17.21"
   },
   "main": "webpack.config.js"
