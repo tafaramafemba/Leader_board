@@ -60,7 +60,7 @@
 }
 
 #add:hover {
-  background-color: #009900;
+  background-color: #090;
   color: #fff;
   cursor: pointer;
 }
@@ -70,7 +70,7 @@ h1 {
 }
 
 .scores {
-  border: 2px solid #009900;
+  border: 2px solid #090;
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 10px;
